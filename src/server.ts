@@ -6,4 +6,8 @@ const port = process.env.PORT
 
 const app = express();
 
-app.listen(port, () => console.log(`Server is running in host "${host}" port "${port}" `));
+app.get("/", (request, response) => {
+    return response.json({ message: "Hello World" });
+})
+
+app.listen(port, () => console.log(`Server is running in ${host}:${port} `));
