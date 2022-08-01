@@ -15,7 +15,7 @@ class SpecificationsRepository implements ISpecificationsRepository
 
     public static getInstance() : SpecificationsRepository {
 
-        if(!SpecificationsRepository) {
+        if(!SpecificationsRepository.INSTANCE) {
 
             SpecificationsRepository.INSTANCE = new SpecificationsRepository();
 
