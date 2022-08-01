@@ -1,8 +1,6 @@
 import { Specification } from "../../model/Specification";
 import { ISpecificationsRepository, ICreateSpecificationDTO } from "./ISpecificationsRepository";
 
-
-
 class SpecificationsRepository implements ISpecificationsRepository
 {
 
@@ -10,7 +8,7 @@ class SpecificationsRepository implements ISpecificationsRepository
 
     private static INSTANCE: SpecificationsRepository;
 
-    constructor()
+    private constructor()
     {
         this.specifications = [];
     }
