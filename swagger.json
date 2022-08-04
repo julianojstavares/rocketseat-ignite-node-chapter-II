@@ -1,0 +1,116 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "version": "0.0.1",
+      "title": "API Documentation",
+      "description": "Node.js",
+      "termsOfService": "empty",
+      "contact": {
+        "name": "Juliano J. S. Tavares",
+        "url": "https://linkedin.com/in/julianojstavares"
+      }
+    },
+    "servers": [
+      {
+        "url": "http://localhost:3333/",
+        "description": "Development server"
+      }
+    ],
+    "security": [
+      {
+        "bearerAuth": []
+      }
+    ],
+    "paths": {
+        "/categories": {
+            "post": {
+                "tags":["Category"],
+                "summary": "Create a category",
+                "description": "Create a new category",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    }
+                                },
+                                "example": {
+                                    "name": "category name sample",
+                                    "description": "category description sample"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "content": {
+                            "application/json": {
+                              "schema": {
+                                "$ref": "#/components/schemas/",
+                                "example": {
+                                    "name": "category name sample",
+                                    "description": "category description sample"
+                                  }
+                              }
+                            }
+                          }
+                          
+                    },
+                    "500": {
+                        "description": "Category already exists",
+                        "content": {
+                            "application/json": {
+                              "schema": {
+                                "$ref": "#/components/schemas/",
+                                "example": {
+                                    "error": "Category already exists"
+                                  }
+                              }
+                            }
+                          }
+                    }
+                }
+            },
+            "get": {
+                "tags": ["Category"],
+                "summary": "List all categories",
+                "description": "List all categories",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                              "schema": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "name": {
+                                            "type": "string"
+                                        },
+                                        "description": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                              }
+                            }
+                          }
+                          
+                    }
+                }
+            }
+        }
+    },
+    "tags": [],
+    "components": {}
+  }
+  
